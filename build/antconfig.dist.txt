@@ -1,0 +1,4 @@
+cfg.name=lib_virtualcurrency
+cfg.version=v3.0
+cfg.buildDir=packages
+cfg.sourceDir=/..PATH../lib_virtualcurrency

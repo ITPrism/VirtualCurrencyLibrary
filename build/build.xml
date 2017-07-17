@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="virtualcurrency" default="build" basedir=".">
+	<description>VirtualCurrency Library Ant Build File</description>
+
+	<!-- load variables from config file -->
+	<property name="cfg.configFile" location="antconfig.txt" />
+	<loadproperties srcfile="${cfg.configFile}" />
+	
+	<!-- folder packages -->
+	<property name="cfg.packages" location="${cfg.sourceDir}/packages" />
+
+	<!-- Admin, Site and Media source -->
+	<property name="cfg.libSourceDir" location="${cfg.sourceDir}/src" />
+	<property name="cfg.testSourceDir" location="${cfg.sourceDir}/tests" />
+	
+	<target name="build" depends="clean, init, build_component, info" />
+
+	<!-- delete old package files -->
+	<target name="clean" description="delete old files and folders">
+		<delete includeEmptyDirs="true">
+			<fileset dir="${cfg.packages}" includes="*"/>
+		</delete>
+	</target>
+	
+	<!-- create necessary folders -->
+	<target name="init" depends="clean" description="creates necessary directory to build with">
+		<mkdir dir="${cfg.packages}" /> 
+	</target>
+    
+	<target name="build_component" depends="init" description="packages the finally component file">
+		
+		<!-- build component -->
+		<zip destfile="${cfg.packages}/${cfg.name}_${cfg.version}.zip">
+			<fileset dir="${cfg.libSourceDir}" />
+			<fileset dir="${cfg.sourceDir}" includes="README.md, LICENSE, CHANGELOG.md" />
+		</zip>
+		
+	</target>
+    
+	<target name="info" description="prints information">
+		<echo message="Project: ${cfg.name}" />
+		<tstamp>
+			<format property="buildtime" pattern="yyyy-MM-dd'T'HH:mm:ss" />
+		</tstamp>
+		<echo message="Buildtime: ${buildtime}" />
+	</target>
+
+</project>

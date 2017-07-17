@@ -1,0 +1,21 @@
+{
+  "id": "1",
+  "commodity_id": "4",
+  "user_id": "630",
+  "number": "10",
+  "commodity": {
+    "id": "4",
+    "title": "Luck",
+    "description": "You are lucky man!",
+    "in_stock": "10",
+    "image": "",
+    "image_icon": "",
+    "published": "1",
+    "params": {
+      "price_real": "100.00",
+      "price_virtual": "1.00",
+      "currency_id": "1",
+      "minimum": "10"
+    }
+  }
+}
