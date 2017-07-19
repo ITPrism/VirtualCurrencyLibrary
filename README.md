@@ -15,6 +15,7 @@ composer require it-prism/virtual-currency-library
 ```
 
 ##Documentation
+
 You can find documentation on following pages.
 
 [Documentation and FAQ](http://itprism.com/help/111-virtual-currency-documentation)
@@ -22,18 +23,20 @@ You can find documentation on following pages.
 [API documentation](http://cdn.itprism.com/api/virtualcurrency/index.html)
 
 ##Download
+
 You can [download VirtualCurrency package](http://itprism.com/free-joomla-extensions/ecommerce-gamification/virtual-currency-accounts-manager) from the website of ITPrism.
 
 [Distribution repository](https://github.com/ITPrism/VirtualCurrencyDistribution)
 
 ##License
+
 Virtual Currency is under [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## Building Joomla! package
 
 If you would like to build a package that you will be able to install on your Joomla! website, follow next steps.
 
-_NOTE: Use this option if you would like to upgrade the library urgently. The component Virtual Currency contains the library and it will be overridden when you upgrade the component on Joomla! CMS._
+_**NOTE**: Use this option if you would like to upgrade the library urgently. The component Virtual Currency contains the library and it will be overridden when you upgrade the component on Joomla! CMS._
 
 You will have to [install Apache Ant](http://ant.apache.org/manual/install.html) on your PC.
 
