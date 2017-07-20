@@ -14,7 +14,7 @@ The preferred method of installation is via [Packagist](https://packagist.org/pa
 composer require itprism/virtual-currency-library
 ```
 
-##Documentation
+## Documentation
 
 You can find documentation on following pages.
 
@@ -22,13 +22,13 @@ You can find documentation on following pages.
 
 [API documentation](http://cdn.itprism.com/api/virtualcurrency/index.html)
 
-##Download
+## Download
 
 You can [download VirtualCurrency package](http://itprism.com/free-joomla-extensions/ecommerce-gamification/virtual-currency-accounts-manager) from the website of ITPrism.
 
 [Distribution repository](https://github.com/ITPrism/VirtualCurrencyDistribution)
 
-##License
+## License
 
 Virtual Currency is under [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).
 
