@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   RealCurrencies
+ * @subpackage   RealCurrency
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -13,10 +13,10 @@ use Prism\Domain;
 use Virtualcurrency\RealCurrency\Gateway\JoomlaGateway;
 
 /**
- * This class provides a glue between persistence layer and currency object.
+ * This class provides a glue between persistence layer and real currency object.
  *
  * @package      Virtualcurrency
- * @subpackage   RealCurrencies
+ * @subpackage   RealCurrency
  */
 class Repository extends Domain\Repository implements Domain\CollectionFetcher
 {

@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency\Payment
- * @subpackage   Session\Gateway
+ * @package      Virtualcurrency\Payment\Session
+ * @subpackage   Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -15,8 +15,8 @@ use Virtualcurrency\Payment\Session\Session;
 /**
  * Joomla database gateway.
  *
- * @package      Virtualcurrency\Payment
- * @subpackage   Session\Gateways
+ * @package      Virtualcurrency\Payment\Session
+ * @subpackage   Gateway
  */
 class JoomlaGateway extends JoomlaDatabase implements SessionGateway
 {

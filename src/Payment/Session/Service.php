@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency\Payment
- * @subpackage   Session\Service
+ * @subpackage   Session
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -17,7 +17,7 @@ use Joomla\Registry\Registry;
  * This class provides functionality that manage data for specific payment gateway.
  *
  * @package      Virtualcurrency\Payment
- * @subpackage   Session\Service
+ * @subpackage   Session
  */
 class Service implements Entity
 {

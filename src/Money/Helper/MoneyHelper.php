@@ -14,7 +14,7 @@ use Prism\Money\Parser\IntlDecimalParser;
 use Virtualcurrency\RealCurrency\Currency;
 
 /**
- * Abstract class of Intl helpers.
+ * Abstract class of money helpers.
  *
  * @package         Virtualcurrency
  * @subpackage      Money\Helper

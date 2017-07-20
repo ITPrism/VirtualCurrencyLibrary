@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency\RealCurrency
- * @subpackage   Gateways
+ * @subpackage   Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -16,7 +16,7 @@ use Joomla\Utilities\ArrayHelper;
  * Joomla database gateway.
  *
  * @package      Virtualcurrency\RealCurrency
- * @subpackage   Gateways
+ * @subpackage   Gateway
  */
 class JoomlaGateway extends JoomlaDatabase implements CurrencyGateway
 {

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency\Cart
- * @subpackage   Helpers
+ * @subpackage   Command
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -29,7 +29,7 @@ use Virtualcurrency\RealCurrency\Currency as RealCurrency;
  * This class provides functionality to prepare cart item.
  *
  * @package      Virtualcurrency\Cart
- * @subpackage   Helpers
+ * @subpackage   Command
  */
 class CommodityPreparation implements ItemPreparer
 {

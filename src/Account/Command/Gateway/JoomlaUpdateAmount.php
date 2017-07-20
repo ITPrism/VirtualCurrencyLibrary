@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency\Accounts
- * @subpackage   Commands\Gateways
+ * @package      Virtualcurrency\Account
+ * @subpackage   Command\Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -15,8 +15,8 @@ use Virtualcurrency\Account\Account;
 /**
  * Joomla database gateway.
  *
- * @package      Virtualcurrency\Accounts
- * @subpackage   Commands\Gateways
+ * @package      Virtualcurrency\Account
+ * @subpackage   Command\Gateway
  */
 class JoomlaUpdateAmount extends JoomlaDatabase implements UpdateAmountGateway
 {

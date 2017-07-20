@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Transactions
+ * @subpackage   Transaction
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -14,10 +14,10 @@ use Prism\Domain\Entity;
 use Virtualcurrency\Transaction\Gateway\TransactionGateway;
 
 /**
- * This class provides functionality that manage the persistence of the currency objects.
+ * This class provides functionality that manage the persistence of the transaction objects.
  *
  * @package      Virtualcurrency
- * @subpackage   Transactions
+ * @subpackage   Transaction
  */
 class Mapper extends Domain\Mapper
 {

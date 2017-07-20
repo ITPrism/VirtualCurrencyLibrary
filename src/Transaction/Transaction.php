@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Transactions
+ * @subpackage   Transaction
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -18,7 +18,7 @@ use Prism\Domain\PropertiesMethods;
  * This class contains methods that are used for managing transactions.
  *
  * @package      Virtualcurrency
- * @subpackage   Transactions
+ * @subpackage   Transaction
  */
 class Transaction implements Entity, EntityProperties
 {
@@ -38,6 +38,7 @@ class Transaction implements Entity, EntityProperties
     protected $item_type;
     protected $sender_id;
     protected $receiver_id;
+    protected $error_msg;
 
     protected $allowedStatuses = array('pending', 'completed', 'canceled', 'refunded', 'failed');
 
@@ -241,6 +242,30 @@ class Transaction implements Entity, EntityProperties
     public function setTransactionId($id)
     {
         $this->txn_id = (string)$id;
+
+        return $this;
+    }
+
+    /**
+     * Return stored error message.
+     *
+     * @return string $message
+     */
+    public function getErrorMessage()
+    {
+        return (string)$this->error_msg;
+    }
+
+    /**
+     * Set error message.
+     *
+     * @param string $message
+     *
+     * @return self
+     */
+    public function setErrorMessage($message)
+    {
+        $this->error_msg = (string)$message;
 
         return $this;
     }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Accounts\Gateways
+ * @subpackage   Account\Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -9,6 +9,7 @@
 
 namespace Virtualcurrency\Account\Gateway;
 
+use Prism\Constants;
 use Prism\Database\JoomlaDatabase;
 use Joomla\Utilities\ArrayHelper;
 use Virtualcurrency\Account\Account;
@@ -17,7 +18,7 @@ use Virtualcurrency\Account\Account;
  * Joomla database gateway.
  *
  * @package      Virtualcurrency
- * @subpackage   Accounts\Gateways
+ * @subpackage   Account\Gateway
  */
 class JoomlaGateway extends JoomlaDatabase implements AccountGateway
 {
@@ -48,6 +49,7 @@ class JoomlaGateway extends JoomlaDatabase implements AccountGateway
         }
 
         $query = $this->getQuery();
+        $this->filter($query, $conditions);
 
         // Filter by conditions.
         foreach ($conditions as $key => $value) {
@@ -85,34 +87,7 @@ class JoomlaGateway extends JoomlaDatabase implements AccountGateway
         }
 
         $query = $this->getQuery();
-
-        // Filter by IDs
-        if (array_key_exists('ids', $conditions) and is_array($conditions['ids'])) {
-            $ids = ArrayHelper::toInteger($conditions['ids']);
-
-            if (count($ids) > 0) {
-                $query->where($this->db->quoteName('a.id') .' IN ('. implode(',', $ids) .')');
-            }
-
-            unset($conditions['ids']);
-        }
-
-        // Filter by currency IDs
-        if (array_key_exists('currency_id', $conditions) and is_array($conditions['currency_id'])) {
-            $ids = ArrayHelper::toInteger($conditions['currency_id']);
-
-            if (count($ids) > 0) {
-                $query->where($this->db->quoteName('a.currency_id') .' IN ('. implode(',', $ids) .')');
-            }
-
-            unset($conditions['currency_id']);
-        }
-
-        // Filter by state.
-        if (array_key_exists('state', $conditions)) {
-            $query->where($this->db->quoteName('a.published') .'='. (int)$conditions['state']);
-            unset($conditions['state']);
-        }
+        $this->filter($query, $conditions);
 
         // Filter by other conditions.
         foreach ($conditions as $key => $value) {
@@ -216,5 +191,42 @@ class JoomlaGateway extends JoomlaDatabase implements AccountGateway
 
         $this->db->setQuery($query);
         $this->db->execute();
+    }
+
+    /**
+     * @param \JDatabaseQuery $query
+     * @param array $conditions
+     */
+    protected function filter(\JDatabaseQuery $query, array &$conditions)
+    {
+        // Filter by IDs
+        if (array_key_exists('ids', $conditions) and is_array($conditions['ids'])) {
+            $ids = ArrayHelper::toInteger($conditions['ids']);
+
+            if (count($ids) > 0) {
+                $query->where($this->db->quoteName('a.id') .' IN ('. implode(',', $ids) .')');
+            }
+
+            unset($conditions['ids']);
+        }
+
+        // Filter by currency IDs
+        if (array_key_exists('currency_id', $conditions) and is_array($conditions['currency_id'])) {
+            $ids = ArrayHelper::toInteger($conditions['currency_id']);
+
+            if (count($ids) > 0) {
+                $query->where($this->db->quoteName('a.currency_id') .' IN ('. implode(',', $ids) .')');
+            }
+
+            unset($conditions['currency_id']);
+        }
+
+        // Filter by state.
+        if (array_key_exists('state', $conditions)) {
+            $query->where($this->db->quoteName('a.published') .'='. (int)$conditions['state']);
+            unset($conditions['state']);
+        }
+
+        $query->where($this->db->quoteName('b.published') .'='. Constants::PUBLISHED);
     }
 }

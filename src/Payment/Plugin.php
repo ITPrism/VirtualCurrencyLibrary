@@ -1,6 +1,6 @@
 <?php
 /**
- * @package      Virtualcurrency
+ * @package      Virtualcurrency\Payment
  * @subpackage   Plugin
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
@@ -22,7 +22,7 @@ use Emailtemplates;
 /**
  * Virtualcurrency payment plugin class.
  *
- * @package      Virtualcurrency
+ * @package      Virtualcurrency\Payment
  * @subpackage   Payments
  */
 class Plugin extends \JPlugin

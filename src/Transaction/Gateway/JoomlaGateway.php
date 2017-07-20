@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency
- * @subpackage   Transactions\Gateways
+ * @package      Virtualcurrency\Transaction
+ * @subpackage   Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -16,8 +16,8 @@ use Virtualcurrency\Transaction\Transaction;
 /**
  * Joomla database gateway.
  *
- * @package      Virtualcurrency
- * @subpackage   Transactions\Gateways
+ * @package      Virtualcurrency\Transaction
+ * @subpackage   Gateway
  */
 class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
 {
@@ -26,8 +26,8 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
      *
      * <code>
      * $conditions = array(
-     *     'code'   => 'USD',
-     *     'symbol' => '$'
+     *     'txn_id'   => 'TXN_12345',
+     *     'user_id' => '1'
      * );
      *
      * $gateway = new JoomlaGateway(\JFactory::getDbo());
@@ -158,7 +158,7 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
         $query = $this->db->getQuery(true);
         $query
             ->select(
-                'a.id, a.title, a.units, a.txn_id, a.txn_amount, a.txn_currency, a.txn_status, a.txn_date, ' .
+                'a.id, a.title, a.units, a.txn_id, a.txn_amount, a.txn_currency, a.txn_status, a.txn_date, a.error_msg,' .
                 'a.service_provider, a.service_alias, a.extra_data, a.item_id, a.item_type, a.sender_id, a.receiver_id'
             )
             ->from($this->db->quoteName('#__vc_transactions', 'a'));
@@ -171,6 +171,7 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
         // Prepare extra data value.
         $extraData = (!$object->getExtraData()) ? 'NULL' : $this->db->quote($object->getExtraData());
         $txnDate   = (!$object->getTransactionDate()) ? 'NULL' : $this->db->quote($object->getTransactionDate());
+        $errorMsg  = (!$object->getErrorMessage()) ? 'NULL' : $this->db->quote($object->getErrorMessage());
 
         $query = $this->db->getQuery(true);
         $query
@@ -188,7 +189,8 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
             ->set($this->db->quoteName('item_id') . '=' . $this->db->quote($object->getItemId()))
             ->set($this->db->quoteName('item_type') . '=' . $this->db->quote($object->getItemType()))
             ->set($this->db->quoteName('sender_id') . '=' . $this->db->quote($object->getSenderId()))
-            ->set($this->db->quoteName('receiver_id') . '=' . $this->db->quote($object->getReceiverId()));
+            ->set($this->db->quoteName('receiver_id') . '=' . $this->db->quote($object->getReceiverId()))
+            ->set($this->db->quoteName('error_msg') . '=' . $errorMsg);
 
         $this->db->setQuery($query);
         $this->db->execute();
@@ -201,6 +203,7 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
         // Prepare extra data value.
         $extraData = (!$object->getExtraData()) ? 'NULL' : $this->db->quote($object->getExtraData());
         $txnDate   = (!$object->getTransactionDate()) ? 'NULL' : $this->db->quote($object->getTransactionDate());
+        $errorMsg  = (!$object->getErrorMessage()) ? 'NULL' : $this->db->quote($object->getErrorMessage());
 
         $query = $this->db->getQuery(true);
         $query
@@ -218,7 +221,8 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
             ->set($this->db->quoteName('item_id') . '=' . $this->db->quote($object->getItemId()))
             ->set($this->db->quoteName('item_type') . '=' . $this->db->quote($object->getItemType()))
             ->set($this->db->quoteName('sender_id') . '=' . $this->db->quote($object->getSenderId()))
-            ->set($this->db->quoteName('receiver_id') . '=' . $this->db->quote($object->getReceiverId()));
+            ->set($this->db->quoteName('receiver_id') . '=' . $this->db->quote($object->getReceiverId()))
+            ->set($this->db->quoteName('error_msg') . '=' . $errorMsg);
 
         $this->db->setQuery($query);
         $this->db->execute();

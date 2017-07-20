@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Helpers
+ * @subpackage   Helper
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -20,7 +20,7 @@ use Virtualcurrency\RealCurrency\Currencies as RealCurrencies;
  * This class provides functionality to prepare transaction data.
  *
  * @package      Virtualcurrency
- * @subpackage   Helpers
+ * @subpackage   Helper
  */
 class PrepareTransactionsHelper implements HelperInterface
 {

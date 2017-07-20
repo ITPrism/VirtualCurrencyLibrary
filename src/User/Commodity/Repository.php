@@ -12,7 +12,7 @@ namespace Virtualcurrency\User\Commodity;
 use Prism\Domain;
 
 /**
- * This class provides a glue between persistence layer and currency object.
+ * This class provides a glue between persistence layer and commodity object.
  *
  * @package      Virtualcurrency\User
  * @subpackage   Commodity

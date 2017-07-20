@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Helpers
+ * @subpackage   Helper
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -16,7 +16,7 @@ use Prism\Helper\HelperInterface;
  * This class provides functionality to prepare an item params.
  *
  * @package      Virtualcurrency
- * @subpackage   Helpers
+ * @subpackage   Helper
  */
 class PrepareItemParamsHelper implements HelperInterface
 {

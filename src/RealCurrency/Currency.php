@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   RealCurrencies
+ * @subpackage   RealCurrency
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -19,7 +19,7 @@ use Prism\Money\CurrencyInterface;
  * This class contains methods that are used for managing currency.
  *
  * @package      Virtualcurrency
- * @subpackage   RealCurrencies
+ * @subpackage   RealCurrency
  */
 class Currency implements Entity, CurrencyInterface
 {

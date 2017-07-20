@@ -7,26 +7,28 @@
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
  */
 
-namespace Virtualcurrency\Transaction\Service;
+namespace Virtualcurrency\Transaction\Service\Joomla;
 
 use Prism\Domain\ApplicationService;
 use Virtualcurrency\Account\Account;
 use Virtualcurrency\Account\Command\Gateway\JoomlaUpdateAmount;
 use Virtualcurrency\Account\Command\UpdateAmount;
+use Virtualcurrency\Account\Gateway\JoomlaGateway as AccountJoomlaGateway;
+use Virtualcurrency\Account\Mapper as AccountMapper;
+use Virtualcurrency\Account\Repository as AccountRepository;
 use Virtualcurrency\Transaction\Transaction;
 use Virtualcurrency\Transaction\Mapper as TransactionMapper;
 use Virtualcurrency\Transaction\Repository as TransactionRepository;
 use Virtualcurrency\Transaction\Gateway\JoomlaGateway as TransactionJoomlaGateway;
-use Virtualcurrency\Account\Gateway\JoomlaGateway as AccountJoomlaGateway;
-use Virtualcurrency\Account\Mapper as AccountMapper;
-use Virtualcurrency\Account\Repository as AccountRepository;
 use Virtualcurrency\User\Commodity\Command\StoreNumber;
 use Virtualcurrency\User\Commodity\Command\Gateway\JoomlaStoreNumber;
 use Virtualcurrency\User\Commodity\Mapper as UserCommodityMapper;
 use Virtualcurrency\User\Commodity\Repository as UserCommodityRepository;
 use Virtualcurrency\User\Commodity\Gateway\JoomlaGateway as UserCommodityJoomlaGateway;
+use Virtualcurrency\Commodity\Command\Gateway\JoomlaUpdateInStock;
+use Virtualcurrency\Commodity\Command\UpdateInStock;
 
-class JoomlaTransaction implements ApplicationService
+class CommodityByVirtual implements ApplicationService
 {
     protected $transaction;
     protected $account;
@@ -53,11 +55,11 @@ class JoomlaTransaction implements ApplicationService
         $updateAmountCommand->setGateway(new JoomlaUpdateAmount($this->db));
         $updateAmountCommand->handle();
 
-        // Increase units.
+        // Increase units to other receiver account or commodity store.
         if (strcmp('currency', $this->transaction->getItemType()) === 0) {
             $conditions = [
-                'user_id' => $request['user_id'],
-                'currency_id' => $request['item_id'],
+                'user_id' => $this->transaction->getReceiverId(),
+                'currency_id' => $this->transaction->getItemId(),
             ];
 
             $accountMapper      = new AccountMapper(new AccountJoomlaGateway($this->db));
@@ -72,18 +74,33 @@ class JoomlaTransaction implements ApplicationService
             $updateAmountCommand->handle();
         } else {
             $conditions = [
-                'user_id' => $request['user_id'],
-                'commodity_id' => $request['item_id'],
+                'user_id' => $this->transaction->getReceiverId(),
+                'commodity_id' => $this->transaction->getItemId(),
             ];
 
             $commodityMapper      = new UserCommodityMapper(new UserCommodityJoomlaGateway($this->db));
             $commodityRepository  = new UserCommodityRepository($commodityMapper);
-            $commodity            = $commodityRepository->fetch($conditions);
+            $userCommodity        = $commodityRepository->fetch($conditions);
+
+            // If there are no enough units to be given, leave a message to the administrator.
+            $commodity            = $userCommodity->getCommodity();
+            if (!$commodity->isUnlimited() and !$commodity->hasUnits($this->transaction->getUnits())) {
+                throw new \RuntimeException('Transaction process successfully but there was not enough commodities to be given to the receiver.');
+            }
+
+            // If the commodities are limited, decrease their number in stock.
+            if (!$commodity->isUnlimited() and $commodity->hasUnits($this->transaction->getUnits())) {
+                $commodity->decreaseInStock($this->transaction->getUnits());
+
+                $updateInStockCommand  = new UpdateInStock($commodity);
+                $updateInStockCommand->setGateway(new JoomlaUpdateInStock($this->db));
+                $updateInStockCommand->handle();
+            }
 
             // Update the number of user commodities.
-            $commodity->increaseNumber($this->transaction->getUnits());
+            $userCommodity->increaseNumber($this->transaction->getUnits());
 
-            $updateCommodityNumber  = new StoreNumber($commodity);
+            $updateCommodityNumber  = new StoreNumber($userCommodity);
             $updateCommodityNumber->setGateway(new JoomlaStoreNumber($this->db));
             $updateCommodityNumber->handle();
         }

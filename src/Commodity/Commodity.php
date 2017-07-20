@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Commodities
+ * @subpackage   Commodity
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -17,10 +17,10 @@ use Prism\Domain\ParamsMethods;
 use Prism\Domain\PropertiesMethods;
 
 /**
- * This class contains methods that are used for managing currency.
+ * This class contains methods that are used for managing commodity.
  *
  * @package      Virtualcurrency
- * @subpackage   Commodities
+ * @subpackage   Commodity
  */
 class Commodity implements Entity, EntityProperties
 {
@@ -156,6 +156,16 @@ class Commodity implements Entity, EntityProperties
         $number = (int)abs($number);
 
         return $number <= $inStock;
+    }
+
+    /**
+     * Check for unlimited units.
+     *
+     * @return bool
+     */
+    public function isUnlimited()
+    {
+        return ((int)$this->in_stock === -1);
     }
 
     /**

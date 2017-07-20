@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency\Accounts
- * @subpackage   Commands
+ * @package      Virtualcurrency\Account
+ * @subpackage   Command
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -17,8 +17,8 @@ use Virtualcurrency\Account\Command\Gateway\UpdateAmountGateway;
  * This class contains methods,
  * which are used for managing virtual bank account.
  *
- * @package      Virtualcurrency\Accounts
- * @subpackage   Commands
+ * @package      Virtualcurrency\Account
+ * @subpackage   Command
  */
 class UpdateAmount implements Command
 {

@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency\User
- * @subpackage   Commodities\Commands
+ * @package      Virtualcurrency\User\Commodity
+ * @subpackage   Command
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -16,8 +16,8 @@ use Virtualcurrency\User\Commodity\Commodity;
 /**
  * This is a command that updates the number of user commodities.
  *
- * @package      Virtualcurrency\User
- * @subpackage   Commodities\Commands
+ * @package      Virtualcurrency\User\Commodity
+ * @subpackage   Command
  */
 class StoreNumber implements Command
 {

@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency\Commodities
- * @subpackage   Commands\Gateways
+ * @package      Virtualcurrency\Commodity
+ * @subpackage   Command\Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -15,8 +15,8 @@ use Virtualcurrency\Commodity\Commodity;
 /**
  * Joomla database gateway.
  *
- * @package      Virtualcurrency\Commodities
- * @subpackage   Commands\Gateways
+ * @package      Virtualcurrency\Commodity
+ * @subpackage   Command\Gateway
  */
 class JoomlaUpdateInStock extends JoomlaDatabase implements UpdateInStockGateway
 {

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Accounts
+ * @subpackage   Account
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -21,7 +21,7 @@ use Virtualcurrency\Currency\Currency;
  * which are used for managing virtual bank account.
  *
  * @package      Virtualcurrency
- * @subpackage   Accounts
+ * @subpackage   Account
  */
 class Account implements Entity, EntityProperties
 {

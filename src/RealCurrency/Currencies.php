@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   RealCurrencies
+ * @subpackage   RealCurrency
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -17,7 +17,7 @@ use Prism\Domain\ToOptionsMethod;
  * This class provides functionality that manage real currencies.
  *
  * @package      Virtualcurrency
- * @subpackage   RealCurrencies
+ * @subpackage   RealCurrency
  */
 class Currencies extends Collection implements CollectionToOptions
 {

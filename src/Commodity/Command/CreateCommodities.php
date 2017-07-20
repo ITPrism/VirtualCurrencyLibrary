@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency\Commodities
- * @subpackage   Commands
+ * @package      Virtualcurrency\Commodity
+ * @subpackage   Command
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -15,8 +15,8 @@ use Virtualcurrency\Commodity\Command\Gateway\CreateCommoditiesGateway;
 /**
  * This is a command that creates commodities records for a user.
  *
- * @package      Virtualcurrency\Commodities
- * @subpackage   Commands
+ * @package      Virtualcurrency\Commodity
+ * @subpackage   Command
  */
 class CreateCommodities implements Command
 {

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Currencies
+ * @subpackage   Currency
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -17,7 +17,7 @@ use Virtualcurrency\Currency\Gateway\CurrencyGateway;
  * This class provides functionality that manage the persistence of the currency objects.
  *
  * @package      Virtualcurrency
- * @subpackage   Currencies
+ * @subpackage   Currency
  */
 class Mapper extends Domain\Mapper
 {

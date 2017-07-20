@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Transactions
+ * @subpackage   Transaction
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -16,7 +16,7 @@ use Prism\Domain\Collection;
  * for managing transactions.
  *
  * @package      Virtualcurrency
- * @subpackage   Transactions
+ * @subpackage   Transaction
  */
 class Transactions extends Collection
 {

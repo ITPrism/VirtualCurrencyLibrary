@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Accounts
+ * @subpackage   Account
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -14,10 +14,10 @@ use Prism\Domain\Entity;
 use Virtualcurrency\Account\Gateway\AccountGateway;
 
 /**
- * This class provides functionality that manage the persistence of the currency objects.
+ * This class provides functionality that manage the persistence of the account objects.
  *
  * @package      Virtualcurrency
- * @subpackage   Accounts
+ * @subpackage   Account
  */
 class Mapper extends Domain\Mapper
 {

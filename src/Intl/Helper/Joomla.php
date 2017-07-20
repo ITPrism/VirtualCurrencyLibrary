@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency
- * @subpackage   Intl\Helper
+ * @package      Virtualcurrency\Intl
+ * @subpackage   Helper
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -19,8 +19,8 @@ use Joomla\Registry\Registry;
 /**
  * This class provides functionality to prepare accounts data.
  *
- * @package      Virtualcurrency
- * @subpackage   Intl\Helper
+ * @package      Virtualcurrency\Intl
+ * @subpackage   Helper
  */
 class Joomla extends IntlHelper
 {

@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency
- * @subpackage   Money\Helper
+ * @package      Virtualcurrency\Money
+ * @subpackage   Helper
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -22,10 +22,10 @@ use Prism\Utilities\StringHelper;
 use Joomla\Registry\Registry;
 
 /**
- * This class provides functionality to prepare accounts data.
+ * This class provides functionality to prepare money data.
  *
- * @package      Virtualcurrency
- * @subpackage   Money\Helper
+ * @package      Virtualcurrency\Money
+ * @subpackage   Helper
  */
 class Joomla extends MoneyHelper
 {

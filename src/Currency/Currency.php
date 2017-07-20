@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Currencies
+ * @subpackage   Currency
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -20,7 +20,7 @@ use Prism\Domain\PropertiesMethods;
  * This class contains methods that are used for managing currency.
  *
  * @package      Virtualcurrency
- * @subpackage   Currencies
+ * @subpackage   Currency
  */
 class Currency implements Entity
 {

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      Virtualcurrency
- * @subpackage   Accounts
+ * @subpackage   Account
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -16,7 +16,7 @@ use Prism\Domain\Collection;
  * for managing user accounts.
  *
  * @package      Virtualcurrency
- * @subpackage   Accounts
+ * @subpackage   Account
  */
 class Accounts extends Collection
 {

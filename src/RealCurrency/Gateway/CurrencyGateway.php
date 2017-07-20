@@ -1,7 +1,7 @@
 <?php
 /**
- * @package         Virtualcurrency
- * @subpackage      RealCurrencies\Gateways
+ * @package         Virtualcurrency\RealCurrency
+ * @subpackage      Gateway
  * @author          Todor Iliev
  * @copyright       Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license         GNU General Public License version 3 or later; see LICENSE.txt
@@ -12,8 +12,8 @@ namespace Virtualcurrency\RealCurrency\Gateway;
 /**
  * Contract between database drivers and gateway objects.
  *
- * @package         Virtualcurrency
- * @subpackage      RealCurrencies\Gateways
+ * @package         Virtualcurrency\RealCurrency
+ * @subpackage      Gateway
  */
 interface CurrencyGateway
 {

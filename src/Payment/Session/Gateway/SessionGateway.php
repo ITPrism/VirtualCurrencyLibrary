@@ -1,7 +1,7 @@
 <?php
 /**
- * @package         Virtualcurrency\Payment
- * @subpackage      Session\Gateway
+ * @package         Virtualcurrency\Payment\Session
+ * @subpackage      Gateway
  * @author          Todor Iliev
  * @copyright       Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license         GNU General Public License version 3 or later; see LICENSE.txt
@@ -14,8 +14,8 @@ use Virtualcurrency\Payment\Session\Session;
 /**
  * Contract between database drivers and gateway objects.
  *
- * @package         Virtualcurrency\Payment
- * @subpackage      Session\Gateway
+ * @package         Virtualcurrency\Payment\Session
+ * @subpackage      Gateway
  */
 interface SessionGateway
 {
