@@ -8,10 +8,10 @@ Virtual Currency is Joomla! extension that provides functionality, API and resou
 
 ## Installation
 
-The preferred method of installation is via [Packagist][] and [Composer][]. Run the following command to install the package and add it as a requirement to your project's `composer.json`:
+The preferred method of installation is via [Packagist](https://packagist.org/packages/itprism/virtual-currency-library) and [Composer](https://getcomposer.org/). Run the following command to install the package and add it as a requirement to your project's `composer.json`:
 
 ```bash
-composer require it-prism/virtual-currency-library
+composer require itprism/virtual-currency-library
 ```
 
 ##Documentation
@@ -40,10 +40,10 @@ _**NOTE**: Use this option if you would like to upgrade the library urgently. Th
 
 You will have to [install Apache Ant](http://ant.apache.org/manual/install.html) on your PC.
 
-1. Download this repository via Composer or manually.
-2. Open your console and go to folder __build__.
-3. Rename file _antconfig.dist.txt_ to _antconfig.txt_.
-4. Edit the path to the folder where the library is. You have to enter the path as value of variable __cfg.sourceDir__ in _antconfig.txt_.
+1. Clone this repository.
+2. Go to folder __build__.
+3. Rename _antconfig.dist.txt_ to _antconfig.txt_.
+4. Enter the path to the folder where you downloaded the library. You have to enter the path as value of variable __cfg.sourceDir__ in _antconfig.txt_.
 5. Execute `ant` in your console.
 
 ```bash
