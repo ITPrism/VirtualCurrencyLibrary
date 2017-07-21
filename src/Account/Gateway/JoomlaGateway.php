@@ -1,7 +1,7 @@
 <?php
 /**
- * @package      Virtualcurrency
- * @subpackage   Account\Gateway
+ * @package      Virtualcurrency\Account
+ * @subpackage   Gateway
  * @author       Todor Iliev
  * @copyright    Copyright (C) 2017 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      GNU General Public License version 3 or later; see LICENSE.txt
@@ -17,8 +17,8 @@ use Virtualcurrency\Account\Account;
 /**
  * Joomla database gateway.
  *
- * @package      Virtualcurrency
- * @subpackage   Account\Gateway
+ * @package      Virtualcurrency\Account
+ * @subpackage   Gateway
  */
 class JoomlaGateway extends JoomlaDatabase implements AccountGateway
 {
@@ -171,7 +171,7 @@ class JoomlaGateway extends JoomlaDatabase implements AccountGateway
         $this->db->setQuery($query);
         $this->db->execute();
 
-        $this->id = $this->db->insertid();
+        $object->setId($this->db->insertid());
     }
 
     public function updateObject(Account $object)

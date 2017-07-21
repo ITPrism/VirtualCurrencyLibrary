@@ -115,7 +115,7 @@ class JoomlaGateway extends JoomlaDatabase implements CommodityGateway
      *
      * @return array
      */
-    public function fetchById($id): array
+    public function fetchById($id)
     {
         if (!$id) {
             throw new \InvalidArgumentException('There is no ID.');
