@@ -169,9 +169,13 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
     public function insertObject(Transaction $object)
     {
         // Prepare extra data value.
-        $extraData = (!$object->getExtraData()) ? 'NULL' : $this->db->quote($object->getExtraData());
-        $txnDate   = (!$object->getTransactionDate()) ? 'NULL' : $this->db->quote($object->getTransactionDate());
-        $errorMsg  = (!$object->getErrorMessage()) ? 'NULL' : $this->db->quote($object->getErrorMessage());
+        $txnDate   = $object->getTransactionDate() ? $this->db->quote($object->getTransactionDate()) : 'NULL';
+        $errorMsg  = $object->getErrorMessage() ? $this->db->quote($object->getErrorMessage()) : 'NULL';
+
+        if ($object->getExtraData()) {
+            $extraData = json_encode($object->getExtraData());
+            $extraData = $extraData ? $this->db->quote($extraData) : 'NULL';
+        }
 
         $query = $this->db->getQuery(true);
         $query
@@ -201,9 +205,13 @@ class JoomlaGateway extends JoomlaDatabase implements TransactionGateway
     public function updateObject(Transaction $object)
     {
         // Prepare extra data value.
-        $extraData = (!$object->getExtraData()) ? 'NULL' : $this->db->quote($object->getExtraData());
         $txnDate   = (!$object->getTransactionDate()) ? 'NULL' : $this->db->quote($object->getTransactionDate());
         $errorMsg  = (!$object->getErrorMessage()) ? 'NULL' : $this->db->quote($object->getErrorMessage());
+
+        if ($object->getExtraData()) {
+            $extraData = json_encode($object->getExtraData());
+            $extraData = $extraData ? $this->db->quote($extraData) : 'NULL';
+        }
 
         $query = $this->db->getQuery(true);
         $query

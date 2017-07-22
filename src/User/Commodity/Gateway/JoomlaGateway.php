@@ -79,14 +79,14 @@ class JoomlaGateway extends JoomlaDatabase implements CommodityGateway
         }
 
         // Filter by commodity IDs.
-        if (array_key_exists('commodity_id', $conditions) and is_array($conditions['commodity_id'])) {
-            $ids = ArrayHelper::toInteger($conditions['commodity_id']);
+        if (array_key_exists('commodity_ids', $conditions) and is_array($conditions['commodity_ids'])) {
+            $ids = ArrayHelper::toInteger($conditions['commodity_ids']);
 
             if (count($ids) > 0) {
                 $query->where($this->db->quoteName('a.commodity_id') . ' IN (' . implode(',', $ids) . ')');
             }
 
-            unset($conditions['commodity_id']);
+            unset($conditions['commodity_ids']);
         }
 
         // Filter by state.

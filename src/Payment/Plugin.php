@@ -66,7 +66,7 @@ class Plugin extends \JPlugin
             // Create log object
             $this->log = new Prism\Log\Log();
 
-            $file = \JPath::clean($this->app->get('log_path') . DIRECTORY_SEPARATOR . basename($this->logFile));
+            $file = \JPath::clean($this->app->get('log_path') .'/'. basename($this->logFile));
             $this->log->addAdapter(new Prism\Log\Adapter\File($file));
         }
 
@@ -290,7 +290,7 @@ class Plugin extends \JPlugin
 
         // Prepare keys for anonymous user.
         if ($id > 0) {
-            $keys = $id;
+            $keys = array('id' => $id);
         } elseif ($sessionId !== '') {
             $keys = array(
                 'session_id'   => $sessionId

@@ -33,14 +33,9 @@ class VirtualByReal implements ApplicationService
 
     public function execute(array $request = array())
     {
-        // Store the new transaction data.
-        $txnMapper      = new TransactionMapper(new TransactionJoomlaGateway($this->db));
-        $txnRepository  = new TransactionRepository($txnMapper);
-        $txnRepository->store($this->transaction);
-
         $conditions = [
             'user_id'     => $this->transaction->getReceiverId(),
-            'currency_id' => $this->transaction->getItemId(),
+            'currency_id' => $this->transaction->getItemId()
         ];
 
         $accountMapper      = new AccountMapper(new AccountJoomlaGateway($this->db));
@@ -53,5 +48,10 @@ class VirtualByReal implements ApplicationService
         $updateAmountCommand  = new UpdateAmount($account);
         $updateAmountCommand->setGateway(new JoomlaUpdateAmount($this->db));
         $updateAmountCommand->handle();
+
+        // Store the new transaction data.
+        $txnMapper      = new TransactionMapper(new TransactionJoomlaGateway($this->db));
+        $txnRepository  = new TransactionRepository($txnMapper);
+        $txnRepository->store($this->transaction);
     }
 }

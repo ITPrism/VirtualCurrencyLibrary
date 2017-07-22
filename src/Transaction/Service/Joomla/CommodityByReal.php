@@ -37,8 +37,8 @@ class CommodityByReal implements ApplicationService
     {
         // Increase the number of user commodities.
         $conditions = [
-            'user_id'     => $this->transaction->getReceiverId(),
-            'currency_id' => $this->transaction->getItemId(),
+            'user_id'      => $this->transaction->getReceiverId(),
+            'commodity_id' => $this->transaction->getItemId(),
         ];
 
         // Create user commodity object.

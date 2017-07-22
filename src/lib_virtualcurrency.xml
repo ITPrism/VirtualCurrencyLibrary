@@ -10,7 +10,7 @@
     <packager>ITPrism</packager>
     <packagerurl>http://itprism.com</packagerurl>
     <version>3.0</version>
-    <creationDate>17 July, 2017</creationDate>
+    <creationDate>22 July, 2017</creationDate>
     <description>This is the library of Virtual Currency that can be used from developers in their extensions.</description>
     <files>
         <folder>Account</folder>
@@ -19,6 +19,7 @@
         <folder>Currency</folder>
         <folder>Helper</folder>
         <folder>Intl</folder>
+        <folder>Money</folder>
         <folder>Payment</folder>
         <folder>RealCurrency</folder>
         <folder>Transaction</folder>

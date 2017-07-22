@@ -211,14 +211,14 @@ class JoomlaGateway extends JoomlaDatabase implements AccountGateway
         }
 
         // Filter by currency IDs
-        if (array_key_exists('currency_id', $conditions) and is_array($conditions['currency_id'])) {
-            $ids = ArrayHelper::toInteger($conditions['currency_id']);
+        if (array_key_exists('currency_ids', $conditions) and is_array($conditions['currency_ids'])) {
+            $ids = ArrayHelper::toInteger($conditions['currency_ids']);
 
             if (count($ids) > 0) {
                 $query->where($this->db->quoteName('a.currency_id') .' IN ('. implode(',', $ids) .')');
             }
 
-            unset($conditions['currency_id']);
+            unset($conditions['currency_ids']);
         }
 
         // Filter by state.
